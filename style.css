@@ -1,0 +1,275 @@
+/* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page background and layout */
+body {
+  min-height: 100vh;
+  padding: 24px;
+
+  display: flex;
+  justify-content: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+}
+
+/* Main app wrapper */
+.weather-app {
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Main title */
+.weather-app > h1 {
+  margin-bottom: 24px;
+  font-size: 2.2rem;
+}
+
+/* Shared glass-style card */
+.weather-card,
+.forecast-section {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Main weather card */
+.weather-card {
+  padding: 28px 24px;
+}
+
+/* Search controls */
+.search-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+/* Search input */
+#city-input {
+  min-width: 0;
+  flex: 1;
+  padding: 14px 16px;
+
+  border: none;
+  border-radius: 999px;
+  outline: none;
+
+  color: #0f172a;
+  background: #ffffff;
+  font-size: 1rem;
+}
+
+/* Input focus state */
+#city-input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45);
+}
+
+/* Search button */
+#get-weather {
+  padding: 14px 18px;
+
+  border: none;
+  border-radius: 999px;
+
+  color: #1e3a8a;
+  background: #ffffff;
+  cursor: pointer;
+
+  font-weight: 700;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Button states */
+#get-weather:hover,
+#get-weather:focus-visible {
+  background: #dbeafe;
+  transform: translateY(-2px);
+}
+
+#get-weather:active {
+  transform: translateY(0);
+}
+
+#get-weather:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+/* City name */
+#city-name {
+  margin-bottom: 14px;
+  font-size: 1.7rem;
+}
+
+/* Current weather emoji */
+#weather-icon {
+  margin: 12px 0;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+/* Current temperature */
+#temperature {
+  margin-bottom: 10px;
+  font-size: clamp(3.5rem, 15vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Current description */
+#description {
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  text-transform: capitalize;
+}
+
+/* Wind information */
+#wind-speed {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Status and error message */
+.status-message {
+  min-height: 22px;
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+
+/* Forecast section */
+.forecast-section {
+  margin-top: 24px;
+  padding: 24px 18px;
+}
+
+.forecast-section h2 {
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+}
+
+/* Forecast cards layout */
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Individual forecast card */
+.forecast-card {
+  padding: 16px 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Forecast day */
+.forecast-day {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Forecast emoji */
+.forecast-icon {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+/* Forecast temperatures */
+.forecast-temperatures {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.95rem;
+}
+
+.forecast-high {
+  font-weight: 700;
+}
+
+.forecast-low {
+  opacity: 0.8;
+}
+
+/* Empty forecast message */
+.forecast-placeholder {
+  grid-column: 1 / -1;
+  opacity: 0.85;
+}
+
+/* Screen-reader-only label */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 520px) {
+  body {
+    padding: 16px;
+  }
+
+  .weather-app {
+    margin: 16px auto;
+  }
+
+  .weather-card,
+  .forecast-section {
+    border-radius: 20px;
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+
+  #city-input,
+  #get-weather {
+    width: 100%;
+  }
+
+  .forecast-container {
+    gap: 8px;
+  }
+
+  .forecast-card {
+    padding: 14px 6px;
+  }
+
+  .forecast-icon {
+    font-size: 2rem;
+  }
+
+  .forecast-temperatures {
+    font-size: 0.85rem;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
