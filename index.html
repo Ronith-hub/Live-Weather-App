@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Weather App</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="weather-app">
+    <h1>Weather App</h1>
+
+    <!-- Main current-weather card -->
+    <section class="weather-card" aria-live="polite">
+      <div class="search-container">
+        <label class="visually-hidden" for="city-input">
+          Enter a city name
+        </label>
+
+        <input
+          id="city-input"
+          type="search"
+          placeholder="Enter a city"
+          autocomplete="off"
+        >
+
+        <button id="get-weather" type="button">
+          Get Weather
+        </button>
+      </div>
+
+      <h2 id="city-name">Search for a city</h2>
+
+      <div id="weather-icon" aria-label="Weather icon">🌤️</div>
+
+      <div id="temperature">--°C</div>
+
+      <p id="description">Current weather will appear here</p>
+
+      <p id="wind-speed">Wind: -- km/h</p>
+
+      <p id="status-message" class="status-message" role="status"></p>
+    </section>
+
+    <!-- Three-day forecast section -->
+    <section class="forecast-section" aria-live="polite">
+      <h2>3-Day Forecast</h2>
+
+      <div id="forecast-container" class="forecast-container">
+        <p class="forecast-placeholder">
+          Search for a city to see the forecast.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
